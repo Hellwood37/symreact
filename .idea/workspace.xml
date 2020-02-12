@@ -131,6 +131,7 @@
     </include_path>
   </component>
   <component name="ProjectId" id="1Xer9eunP9lIHBWHfNybVwit5am" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
@@ -158,7 +159,7 @@
       <updated>1581417251663</updated>
       <workItem from="1581417255667" duration="12647000" />
       <workItem from="1581436858541" duration="13000" />
-      <workItem from="1581494523247" duration="859000" />
+      <workItem from="1581494523247" duration="1115000" />
     </task>
     <servers />
   </component>
