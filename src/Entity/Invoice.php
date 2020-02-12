@@ -2,10 +2,12 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\InvoiceRepository")
+ * @ApiResource
  */
 class Invoice
 {
@@ -40,7 +42,8 @@ class Invoice
     /**
      * @ORM\Column(type="integer")
      */
-    private $Chrono;
+    private $chrono;
+
 
     public function getId(): ?int
     {
@@ -97,13 +100,14 @@ class Invoice
 
     public function getChrono(): ?int
     {
-        return $this->Chrono;
+        return $this->chrono;
     }
 
-    public function setChrono(int $Chrono): self
+    public function setChrono(int $chrono): self
     {
-        $this->Chrono = $Chrono;
+        $this->chrono = $chrono;
 
         return $this;
     }
+
 }
