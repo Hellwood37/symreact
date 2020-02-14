@@ -6,7 +6,9 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use Doctrine\ORM\Mapping as ORM;
+use App\Entity\User;
 use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\InvoiceRepository")
@@ -18,18 +20,18 @@ use Symfony\Component\Serializer\Annotation\Groups;
  *          }
  *      },
  *      itemOperations=
- *      {"GET", "PUT", "DELETE",
- *          "increment"=
+ *      {"GET", "PUT", "DELETE", "POST", "increment"=
  *          {
- *            "method"="post",
- *           "path"="/invoices/{id}/increment",
- *           "controller"="App\Controller\InvoiceIncrementationController",
- *            "openapi_context"={
+ *              "method"="post",
+ *              "path"="/invoices/{id}/increment",
+ *              "controller"="App\Controller\InvoiceIncrementationController",
+ *              "openapi_context"=
+ *              {
  *                      "summary"="Incrémente une facture",
  *                      "description"="Incrémente le chrono d'une facture donnée"
- *                 }
- *              }
- *          },
+*               }
+*           }
+*       },
  *      attributes={
  *           "pagination_enabled"=true,
  *           "pagination_items_per_page"=20,
