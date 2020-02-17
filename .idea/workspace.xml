@@ -3,10 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="493a948c-14e1-4cf0-b7ba-8b58ee1df755" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/DataFixtures/AppFixtures.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Entity/Invoice.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Invoice.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -182,7 +178,7 @@
       <workItem from="1581674179905" duration="10061000" />
       <workItem from="1581690383417" duration="5234000" />
       <workItem from="1581927465919" duration="9529000" />
-      <workItem from="1581938926864" duration="2427000" />
+      <workItem from="1581938926864" duration="6457000" />
     </task>
     <servers />
   </component>

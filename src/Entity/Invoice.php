@@ -5,6 +5,7 @@ namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\OrderFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
+use DateTimeInterface;
 use Doctrine\ORM\Mapping as ORM;
 use App\Entity\User;
 use Symfony\Component\Serializer\Annotation\Groups;
@@ -29,15 +30,16 @@ use Symfony\Component\Validator\Constraints as Assert;
  *              {
  *                      "summary"="Incrémente une facture",
  *                      "description"="Incrémente le chrono d'une facture donnée"
-*               }
-*           }
-*       },
+ *              }
+ *          }
+ *      },
  *      attributes={
  *           "pagination_enabled"=true,
  *           "pagination_items_per_page"=20,
  *           "order": {"sentAt":"desc"}
  *      },
- *      normalizationContext={"groups"={"invoices_read"}}
+ *     normalizationContext={"groups"={"invoices_read"}}
+ *     denormalizationContext={"disable_type_enforcement"= true}
  * )
  * @ApiFilter(OrderFilter::class, properties={"amount", "sentAt"})
  */
@@ -62,7 +64,7 @@ class Invoice
     /**
      * @ORM\Column(type="datetime")
      * @Groups({"invoices_read", "customers_read", "invoices_subresource"})
-     * @Assert\DateTime(message="La date doit être au format YYYY-MM-DD")
+     * @Assert\Type("\DateTimeInterface", message="La date doit être au format YYYY-MM-DD")
      * @Assert\NotBlank(message="La date d'envoi doit être renseignée")
      */
     private $sentAt;
@@ -119,12 +121,12 @@ class Invoice
         return $this;
     }
 
-    public function getSentAt(): ?\DateTimeInterface
+    public function getSentAt(): ?DateTimeInterface
     {
         return $this->sentAt;
     }
 
-    public function setSentAt(\DateTimeInterface $sentAt): self
+    public function setSentAt(DateTimeInterface $sentAt): self
     {
         $this->sentAt = $sentAt;
 
