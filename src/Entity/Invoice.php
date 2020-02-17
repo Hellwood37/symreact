@@ -20,7 +20,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  *          }
  *      },
  *      itemOperations=
- *      {"GET", "PUT", "DELETE", "POST", "increment"=
+ *      {"GET",  "PUT", "DELETE", "increment"=
  *          {
  *              "method"="post",
  *              "path"="/invoices/{id}/increment",
@@ -54,18 +54,24 @@ class Invoice
     /**
      * @ORM\Column(type="float")
      * @Groups({"invoices_read", "customers_read", "invoices_subresource"})
+     * @Assert\NotBlank(message="Le montant de la facture est obligatoire")
+     * @Assert\Type(type="numeric", message="Le montant de la facture doit être un chiffre ou un nombre")
      */
     private $amount;
 
     /**
      * @ORM\Column(type="datetime")
      * @Groups({"invoices_read", "customers_read", "invoices_subresource"})
+     * @Assert\DateTime(message="La date doit être au format YYYY-MM-DD")
+     * @Assert\NotBlank(message="La date d'envoi doit être renseignée")
      */
     private $sentAt;
 
     /**
      * @ORM\Column(type="string", length=255)
      * @Groups({"invoices_read", "customers_read", "invoices_subresource"})
+     * @Assert\NotBlank(message="Le statut de la facture est obligatoire")
+     * @Assert\Choice(choices={"SENT", "PAID", "CANCELLED"}, message="Le statut doit être SENT, PAID ou CANCELLED")
      */
     private $status;
 
@@ -73,12 +79,15 @@ class Invoice
      * @ORM\ManyToOne(targetEntity="App\Entity\Customer", inversedBy="invoices")
      * @ORM\JoinColumn(nullable=false)
      * @Groups({"invoices_read"})
+     * @Assert\NotBlank(message="Le client de la facture doit être renseigné")
      */
     private $customer;
 
     /**
      * @ORM\Column(type="integer")
      * @Groups({"invoices_read", "customers_read", "invoices_subresource"})
+     * @Assert\NotBlank(message="Il faut un chrono pour la facture")
+     * @Assert\Type(type="integer", message="Le chrono doit être un nombre")
      */
     private $chrono;
 
