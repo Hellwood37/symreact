@@ -12,7 +12,6 @@ use Doctrine\ORM\QueryBuilder;
 use Symfony\Component\Security\Core\Authorization\AuthorizationCheckerInterface;
 use Symfony\Component\Security\Core\Security;
 
-
 class CurrentUserExtension implements QueryCollectionExtensionInterface, QueryItemExtensionInterface
 {
     private $security;
@@ -34,7 +33,7 @@ class CurrentUserExtension implements QueryCollectionExtensionInterface, QueryIt
         (
             ($resourceClass === Customer::class || $resourceClass === Invoice::class)
            &&
-            !$this->auth->isGranted('ROLE_ADMIN') // Ayant le role ADMIN
+            !$this->auth->isGranted('ROLE_ADMIN') && $user instanceof User// Ayant le role ADMIN
            //&& $user instanceof User // Est bien connecté si on a envie d'afficher la liste complète des Invoices pour tous les User connectés
         )
         {
