@@ -1,7 +1,7 @@
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import Pagination from "../components/Pagination";
-import axios from "axios";
-import moment from "moment";
+import InvoicesAPI from "../services/invoicesAPI";
 
 const STATUS_CLASSES = {
   PAID: "success",
@@ -19,18 +19,19 @@ const InvoicesPage = props => {
   const [invoices, setInvoices] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
   const [search, setSearch] = useState("");
+  const itemsPerPage = 10;
 
+  // Récupération des invoices auprès de l'API
   const fetchInvoices = async () => {
     try {
-      const data = await axios
-        .get("https://127.0.0.1:8000/api/invoices")
-        .then(response => response.data["hydra:member"]);
+      const data = await InvoicesAPI.findAll();
       setInvoices(data);
     } catch (error) {
       console.log(error.response);
     }
   };
 
+  // Charger les invoices au chargement du composant
   useEffect(() => {
     fetchInvoices();
   }, []);
@@ -39,20 +40,40 @@ const InvoicesPage = props => {
   const handlePageChange = page => {
     setCurrentPage(page);
   };
-
-  // Gestion de la recherche
   const handleSearch = ({ currentTarget }) => {
     setSearch(currentTarget.value);
     setCurrentPage(1);
   };
 
-  const itemsPerPage = 10;
+  // Gestion de la suppression
+  const handleDelete = async id => {
+    const originalInvoices = [...invoices];
 
+    setInvoices(invoices.filter(invoice => invoice.id !== id));
+
+    try {
+      await InvoicesAPI.delete(id);
+    } catch (error) {
+      console.log(error.response);
+      setInvoices(originalInvoices);
+    }
+  };
+
+  // Gestion du format de date
   const formatDate = str => moment(str).format("DD/MM/YYYY");
+
+  //Gestion de la recherche :
+  const filteredInvoices = invoices.filter(
+    i =>
+      i.customer.firstName.toLowerCase().includes(search.toLowerCase()) ||
+      i.customer.lastName.toLowerCase().includes(search.toLowerCase()) ||
+      i.amount.toString().includes(search.toLowerCase()) ||
+      STATUS_LABELS[i.status].toLowerCase().includes(search.toLocaleLowerCase())
+  );
 
   // Pagination des données
   const paginatedInvoices = Pagination.getData(
-    invoices,
+    filteredInvoices,
     currentPage,
     itemsPerPage
   );
@@ -61,11 +82,20 @@ const InvoicesPage = props => {
     <>
       <h1>Liste des factures</h1>
 
+      <div className="form-group">
+        <input
+          type="text"
+          onChange={handleSearch}
+          value={search}
+          className="form-control"
+          placeholder="Rechercher..."
+        />
+      </div>
+
       <table className="table table-hover">
         <thead>
           <tr>
             <th>Numéro de facture</th>
-            <th className="text-center">Référence de facture</th>
             <th>Client</th>
             <th className="text-center">Date d'envoi</th>
             <th className="text-center">Statut</th>
@@ -77,7 +107,6 @@ const InvoicesPage = props => {
           {paginatedInvoices.map(invoice => (
             <tr key={invoice.id}>
               <td className="text-center">{invoice.chrono}</td>
-              <td className="text-center">{invoice.id}</td>
               <td>
                 <a href="#">
                   {invoice.customer.firstName} {invoice.customer.lastName}
@@ -96,7 +125,12 @@ const InvoicesPage = props => {
               </td>
               <td>
                 <button className="btn btn-sm btn-primary mr-1">Editer</button>
-                <button className="btn btn-sm btn-danger">Supprimer</button>
+                <button
+                  className="btn btn-sm btn-danger"
+                  onClick={() => handleDelete(invoice.id)}
+                >
+                  Supprimer
+                </button>
               </td>
             </tr>
           ))}
@@ -106,7 +140,7 @@ const InvoicesPage = props => {
       <Pagination
         currentPage={currentPage}
         itemsPerPage={itemsPerPage}
-        length={invoices.length}
+        length={filteredInvoices.length}
         onPageChanged={handlePageChange}
       />
     </>
