@@ -2,19 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="493a948c-14e1-4cf0-b7ba-8b58ee1df755" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/api-course.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/api-course.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.jshintrc" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/components/PrivateRoute.jsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/js/contexts/AuthContext.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/bundles.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/bundles.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/security.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/security.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/node_modules/.yarn-integrity" beforeDir="false" afterPath="$PROJECT_DIR$/node_modules/.yarn-integrity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/symfony.lock" beforeDir="false" afterPath="$PROJECT_DIR$/symfony.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/base.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/base.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/components/Navbar.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/components/Navbar.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/pages/LoginPage.jsx" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/pages/LoginPage.jsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/assets/js/services/authAPI.js" beforeDir="false" afterPath="$PROJECT_DIR$/assets/js/services/authAPI.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -223,6 +218,7 @@
       <workItem from="1582099486237" duration="11528000" />
       <workItem from="1582186238840" duration="3004000" />
       <workItem from="1582297452068" duration="310000" />
+      <workItem from="1582716932883" duration="774000" />
     </task>
     <servers />
   </component>
@@ -284,12 +280,12 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state width="498" height="446" key="SwitcherDM/1920.0.1920.1080/0.27.1920.988@1920.0.1920.1080" timestamp="1581691248523" />
-    <state x="2534" y="362" key="com.intellij.ide.util.TipDialog" timestamp="1582297452972">
+    <state x="2534" y="362" key="com.intellij.ide.util.TipDialog" timestamp="1582716933162">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="614" y="380" key="com.intellij.ide.util.TipDialog/0.27.1920.1053/1920.0.1920.1080@0.27.1920.1053" timestamp="1581417256990" />
     <state x="2534" y="362" key="com.intellij.ide.util.TipDialog/0.27.1920.988/1920.0.1920.1080@1920.0.1920.1080" timestamp="1581581277253" />
-    <state x="2534" y="362" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.27.1920.988@1920.0.1920.1080" timestamp="1582297452972" />
+    <state x="2534" y="362" key="com.intellij.ide.util.TipDialog/1920.0.1920.1080/0.27.1920.988@1920.0.1920.1080" timestamp="1582716933162" />
     <state x="2544" y="237" key="run.anything.popup" timestamp="1581607578508">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
